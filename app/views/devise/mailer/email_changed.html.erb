@@ -1,0 +1,7 @@
+<p>مرحبا بك <%= @email %>!</p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p>نود ان نخبرك ان بريدك الاليكتروني سوف يتم تغييره الى : <%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p>نود ان نخبرك ان بريدك الاليكتروني قد تم تغييره الى : <%= @resource.email %>.</p>
+<% end %>

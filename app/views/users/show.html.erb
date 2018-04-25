@@ -1,0 +1,109 @@
+<!-- User profile show page -->
+
+<div class="row" >
+
+		<div class="col-md-2 left">
+			<h1>إعلانات</h1>
+      <% @leftAd.each do |leftAd|%>
+          <div  class="margin-ads">
+            <% if leftAd.assets.exists? %>
+                <%= link_to image_tag(leftAd.assets.first.image.url(:thumb), class:"ads-Image"), leftAd %>
+                <p><%= leftAd.name %></p>
+            <% end %>
+          </div>
+      <% end %>
+
+      <% if @leftAd.length < 5 %>
+          <% generalAdsLength = 5-@leftAd.length %>
+          <% for generalAds in 1..generalAdsLength %>
+              <%=	link_to image_tag('/images/alexbrokers4.jpg', class:'generalAds-Image'), about_path %>
+          <% end %>
+      <% end %>
+		</div>
+		
+		<div class="col-md-8 middle">
+
+				<% if @user == current_user %>
+					<h1>اهلا بك: <%= @user.username%></h1>
+					<%= link_to "تعديل الملف الشخصي", edit_user_registration_path %><br/>
+					<%= link_to "اعادة ارسال كود التفعيل", new_user_confirmation_path %>
+				<% end %>
+			
+			<table class="table" id="user-details">
+				<tr>
+					<td><strong>الاسم: </strong></td>
+					<td><%= @user.username%></td>
+				</tr>
+				<tr>
+					<td><strong>البريد الاليكتروني: </strong></td>
+					<td><%= @user.email%></td>
+				</tr>
+				<tr>
+					<td><strong>رقم الهاتف: </strong></td>
+					<td><%= @user.mob%></td>
+				</tr>
+			</table>			
+			
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>العقار</th>
+						<th>تاريخ الاعلان</th>
+						<th>النوع</th>
+						<th>المحافظة</th>
+						<th>الحي</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @user_realties.each do |urealty| %>
+						<tr>
+							<td id="user-table-realty-name"><%= link_to urealty.name, realty_path(urealty) %></td>
+							<td><%= I18n.localize(urealty.created_at, :format =>  '%e %B %Y')%></td>
+							<td><%= urealty.type.name %></td>
+							<td><%= urealty.governorate.name %></td>
+							<td><%= urealty.province.name %></td>
+							<% if user_signed_in? %>
+								<% if urealty.user == current_user %>
+									<td><%= link_to 'تعديل', edit_realty_path(urealty) %></td>
+									<td><%= link_to 'حذف', urealty, method: :delete, data: { confirm: 'هل انت متأكد؟' } %></td>
+								<% end %>
+							<% end %>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>			
+					
+		<br />
+				      <div class="apple_pagination">
+        <!--div class="page_info">
+          <%#= page_entries_info @realties %>
+        </div-->
+        <%= will_paginate @user_realties, previous_label: h("< السابق "), next_label: h("التالي >"), :container => false, :style => 'direction:rtl' %>
+
+      </div>
+		
+		</div>
+	
+			<div class="col-md-2 right">
+			<h1>إعلانات</h1>
+			<% @rightAd.each do |rightAd|%>
+          <div  class="margin-ads">
+            <% if rightAd.assets.exists? %>
+                <%= link_to image_tag(rightAd.assets.first.image.url(:thumb), class:"ads-Image"), rightAd %>
+                <p><%= rightAd.name %></p>
+            <% end %>
+          </div>
+      <% end %>
+
+      <% if @leftAd.length < 5 %>
+          <% generalAdsLength = 5-@leftAd.length %>
+          <% for generalAds in 1..generalAdsLength %>
+              <%=	link_to image_tag('/images/alexbrokers4.jpg', class:'generalAds-Image'), about_path %>
+          <% end %>
+      <% end %>
+		</div>
+		
+</div>

@@ -1,0 +1,2 @@
+class LuxuriesController < ApplicationController
+end

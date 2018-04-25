@@ -1,0 +1,226 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ * require font-awesome
+ * require_tree .
+ * require_self
+ */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+@import 'realties';
+@import 'users';
+@import 'pages';
+@import 'private_realty';
+
+$basic-color: #CAE6DA;
+//#00303F;
+$secondary-color: #F7883F;
+$another-color: #7A9D96;
+$loging-color: #533455;
+$font-color: black;
+$font-color-inv: #fff;
+$primary-color: rgba(0, 48, 63, 0.85);
+$bright-link: #73B4B5;
+$bright-link-hover: #BBCC88;
+$dark-link: #533455;
+@import url('https://fonts.googleapis.com/css?family=Cairo&subset=arabic');
+
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	direction: rtl;
+	padding: 0 0 5px 0;
+	font-family: 'Cairo', sans-serif !important;
+	background: $basic-color;
+	margin: 92px 0 0 0;
+	// overflow-x: hidden;
+	height: 100%;
+}
+
+main {
+	background: $primary-color;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.navbar {
+	//overflow: auto !important;
+	min-height: 83px !important;
+	background: $primary-color !important;
+	color: #fff !important;
+	font-size: 18px !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	padding: 5px !important;
+}
+
+.navbar.transparent .navbar-inner {
+	border-width: 0px;
+	-webkit-box-shadow: 0px 0px;
+	box-shadow: 0px 0px;
+	background-color: rgba(0, 0, 0, 0.0);
+	background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0%, rgba(0, 0, 0, 0.00)), color-stop( 100%, rgba(0, 0, 0, 0.00)));
+	background-image: -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 100%);
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.00) 100%);
+	position: relative;
+}
+
+.navbar h1 {
+	margin: 2px 0 0 0;
+	padding: 0;
+}
+
+.navbar a {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	color: $secondary-color !important;
+}
+
+.navbar a.navbar-brand:hover {
+	color: $secondary-color !important;
+}
+
+.navbar ul {
+	margin-top: 15px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.dropdown-menu>li>a:hover {
+	background: none;
+	color: $secondary-color !important;
+}
+
+.navbar-nav>li>.dropdown-menu {
+	background: $primary-color !important;
+}
+
+.dropdown-menu>li>a {
+	color: $basic-color !important;	
+}
+
+#user_nav {
+	background: $loging-color;
+	color: $font-color-inv;
+	font-size: 13px;
+	padding-right: 5px;
+}
+
+#user_nav a {
+	color: $secondary-color;
+	font-size: 13px;
+}
+
+.navbar #container {
+	clear: both;
+}
+
+.dropdown {
+	z-index: 100;
+}
+footer {
+	background: $primary-color;
+	color: #fff;
+	text-align: center;
+	height: 100px;
+	padding-top: 10px;
+	padding-bottom: 0;
+	margin-top: 0;
+	border-top: 1px solid $primary-color;
+}
+
+a.sort_link:link {
+		color: $bright-link;
+}
+
+a.sort_link:hover {
+		color: $bright-link-hover;
+}
+
+a.cancel-button {
+		color: $bright-link;
+}
+
+a.cancel-button:hover {
+		color: $bright-link-hover;
+}
+
+//------------------------------ Carousel ------------------------
+
+#show-slider-container {
+	padding: 10px 30% 10px 0px;
+}
+
+#show-slider-container .header {
+	width: 24%;
+	text-align: center;
+}
+
+#showSlider {
+	direction: ltr;
+	width: 250px;
+	height: 200px;
+	overflow: hidden;
+	background: #b0b0b0;
+}
+
+#showSlider .showSlides {
+	display: inline-block;
+	width: 1250px;
+	height: 200px;
+	margin: 0;
+	padding: 0;
+}
+
+#showSlider .showSlide {
+	float: left;
+	list-style-type: none;
+	width: 250px;
+	height: 200px;
+}
+
+// --- adjustment for li in device log in page -----------------------
+#user_remember_me {
+	width: auto;
+	height: auto;
+}
+
+// ------- alert message adjustments ---------------------------------
+.alert {
+	padding: 0 !important;
+	padding-right: 10px !important;
+}
+
+// ------- devise customization ----------------------------------
+.devise-container h2 {
+	color: $basic-color;
+	background-color: $primary-color;
+}
+
+.devise-container * {
+	padding: 5px;
+}
+

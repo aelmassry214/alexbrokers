@@ -1,0 +1,49 @@
+$basic-color: #CAE4DB;
+$primary-color: rgba(0, 48, 63, 0.85); //#00303F;
+$secondary-color: #FFEAC8;
+$another-color: #FF6600;
+$loging-color: #444;
+$font-color: black;
+$font-color-inv: #fff;
+#first-ads {
+	color: $basic-color;
+}
+
+#souq {
+	color: $primary-color;
+}
+
+#souq-header {
+	color: $basic-color;
+}
+
+.alex {
+  height: 250px;
+  width: 300px;
+}
+
+
+#about-main
+{
+	background: $basic-color;
+	font-size: 1.3em;
+	padding: 60px 20px;
+	line-height: 2em;
+}
+
+#about-main i {
+	color: $primary-color;
+}
+
+#about-main strong
+{
+	margin-bottom: 0;
+}
+
+#about-header h1 {
+	background: $basic-color;
+	color: $primary-color;
+	margin-bottom: 0;
+	margin-top: 10px;
+	text-align: center;
+}

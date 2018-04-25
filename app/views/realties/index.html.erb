@@ -1,0 +1,161 @@
+	
+
+	<div class="container-fluid" id="index-main">
+
+	<div class="row" >
+		<div class="col-md-2" id="index-left">
+			<h1>إعلانات</h1>
+ 			<%= render 'partials/leftAd'%>
+		</div>
+		
+		<div class="col-md-8" id="index-middle">
+
+
+				<div class="container" >
+						<div id='fast-links'>
+<!-- ---------------------------- Fast Search  --------------------------------- -->							
+								<div id="fast-search-form">
+									<%= search_form_for @q do |f|%>
+										<h3>بحث سريع</h3>
+										<div class="form-group search-group" id="search_partial">
+											<%= f.select :category_id_eq, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'الفئة'} , class: 'form-control-fast' %>			
+
+											<%= f.select :governorate_id_eq, Governorate.all.collect {|x| [x.name, x.id]}, {:include_blank => 'اختار المحافظة'}, class: 'form-control-fast', id: 'GovernorateID' %>
+
+											<%= f.grouped_collection_select :province_id_eq, Governorate.order(:name), :provinces, :name, :id, :name, {:include_blank => 'اختار الحي'}, class: 'form-control-fast' , id: 'ProvinceID'%>							
+
+											<%= f.submit "بـحث", class:'search-btn btn-primary btn-sm' %>
+										
+											<%= link_to "كل الاعلانات", request.path, class:"cancel-button" %>
+										
+										</div>
+										
+
+										
+									<% end %>
+								</div>
+									
+<!-- ------------------------------ Filter --------------------------------------- -->																								
+							<span> ترتيب حسب : </span>
+							<%= sort_link(@q, :created_at, "التاريخ ") %>
+							<%= sort_link(@q, :price, "السعر") %>
+						</div>	
+
+<!-- --------------------------- Realties List --------------------------------- -->					
+					
+						<h1>قائمة <%= @realtyTitle %></h1>
+						
+						<% if @realties.length == 0 %>
+							<p> لا يوجد اعلانات عن <%= @realtyTitle%></p>
+						<% end %>		
+						
+						<% @realties.each do |realty| %>
+							<div id="index-container">
+								<div id="index-fields">
+									<div class="container edit-container">
+										<!-- <p class="index-list-title" id="title-price"><strong>العنوان</strong></p>-->
+										<h4><strong><%= realty.name %></strong></h4>
+										<ul class ="index-list">
+											<li><span class="index-list-title"> السعر:</span></li>
+											<li><strong><%= realty.price%></strong></li>
+										</ul>
+									</div>
+
+
+									<div class="container edit-container">
+
+											<ul class= "index-list">
+												<li><span class="index-list-title"><strong>نوع العقار</strong></span></li>
+												<li><strong>النوع : </strong><%= realty.type.name %></li>
+												<li><strong>الفئة : </strong><%= realty.category.name %></li>
+											</ul>
+
+
+									</div>			
+
+									<div class="container  edit-container">
+
+											<ul class= "index-list">
+												<li><span class="index-list-title"><strong>الموقع</strong></span></li>
+												<li><p><strong>المحافظة : </strong><%= realty.governorate.name %></p></li>
+												<li><p><strong>الحي : </strong><%= realty.province.name %></p></li>
+											</ul>
+
+									</div>			
+
+									<div class="container edit-container">
+
+										<div class="container edit-container">
+											<ul class= "index-list">
+												<li><span class="index-list-title"><strong>تفاصيل العقار</strong></span></li>
+												<li><p><strong>المساحة : </strong><%= realty.size %> متر </p>  </li>
+												<li><p><strong>عدد الغرف : </strong><%= realty.rooms %></p></li>
+												<li><p><strong>عدد الحمامات : </strong><%= realty.baths %></p></li>
+											</ul>
+										</div>
+
+                    <div class="container edit-container">
+                      <ul class= "index-list" id="index-luxury">
+                        <li>
+                          <span><strong>كماليات : </strong></span>
+                          <ul>
+                            <% realty.luxuries.each do |luxury| %>
+                                <li><%= luxury.name %></li>
+                            <% end %>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+
+									</div>
+
+								</div>
+			
+		
+
+								<!--<div style="clear:both;"></div>-->
+								<div  id="index-image">
+									<% if realty.assets.exists? %>
+										<%= link_to image_tag(realty.assets.first.image.url(:medium), id:"index-imagetag"), realty %>
+									<% else %>
+               			<%= link_to image_tag('/images/genImage_medium.jpg'), realty, id:'index-imagetag'%>
+									<% end %>
+									<div>
+										<p><%= link_to 'التفاصيل', realty %></p>
+										<% if user_signed_in? %>
+											<% if realty.user == current_user %>
+												<p><%= link_to 'تعديل', edit_realty_path(realty) %></p>
+												<p><%= link_to 'حذف', realty, method: :delete, data: {confirm: 'هل انت متأكد انك تريد حذف هذا الاعلان؟'} %></p>
+											<% end %>
+										<% end %>
+									</div>
+								</div>
+
+								<div id="index-user">
+									<p><strong>المعلن  :</strong><%= link_to realty.user.email, user_path(realty.user) %></p>
+									<p> <strong>تاريخ اضافة الاعلان:</strong> <%= I18n.localize(realty.created_at, :format =>  '%e %B %Y في %l:%M %p')%></p>
+								</div>
+
+							</div>
+		
+				<% end %>
+			</div>
+
+      <div class="apple_pagination">
+        <!--div class="page_info">
+          <%#= page_entries_info @realties %>
+        </div-->
+        <%= will_paginate @realties, previous_label: h("< السابق "), next_label: h("التالي >"), :container => false, :style => 'direction:rtl' %>
+
+      </div>
+
+    </div>
+		
+		<div class="col-md-2" id="index-right">
+			<h1>البحث</h1>
+			<%= render 'partials/search'%>
+		</div>
+	</div>
+</div>
+
+

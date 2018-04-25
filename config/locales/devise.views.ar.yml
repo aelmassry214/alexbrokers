@@ -1,0 +1,330 @@
+ar:
+  time:
+    formats:
+      am: صباحًا
+      default: "%d/%m/%Y"
+      long: "%d %B %Y"
+      pm: مساءً
+  date:
+    abbr_day_names:
+    - الأحد
+    - الإثنين
+    - الثّلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السّبت
+    abbr_month_names:
+    -
+    - ينا
+    - فبر
+    - مار
+    - أبر
+    - ماي
+    - يون
+    - يول
+    - أغس
+    - سبت
+    - أكت
+    - نوف
+    - ديس
+    day_names:
+    - الأحد
+    - الإثنين
+    - الثّلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السّبت
+    formats:
+      default: "%d-%m-%Y"
+      long: "%e %B، %Y"
+      short: "%e %b"
+    month_names:
+    -
+    - يناير
+    - فبراير
+    - مارس
+    - أبريل
+    - مايو
+    - يونيو
+    - يوليو
+    - أغسطس
+    - سبتمبر
+    - أكتوبر
+    - نوفمبر
+    - ديسمبر
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        zero: حوالي صفر ساعات
+        one: حوالي ساعة واحدة
+        two: حوالي ساعتان
+        few: حوالي %{count} ساعات
+        many: حوالي %{count} ساعة
+        other: حوالي %{count} ساعة
+      about_x_months:
+        zero: حوالي صفر أشهر
+        one: حوالي شهر واحد
+        two: حوالي شهران
+        few: حوالي %{count} أشهر
+        many: حوالي %{count} شهر
+        other: حوالي %{count} شهر
+      about_x_years:
+        zero: حوالي صفر سنوات
+        one: حوالي سنة
+        two: حوالي سنتان
+        few: حوالي %{count} سنوات
+        many: حوالي %{count} سنة
+        other: حوالي %{count} سنة
+      almost_x_years:
+        zero: ما يقرب من صفر سنوات
+        one: تقريبا سنة واحدة
+        two: ما يقرب من سنتين
+        few: ما يقرب من %{count} سنوات
+        many: ما يقرب من %{count} سنة
+        other: ما يقرب من %{count} سنة
+      half_a_minute: نصف دقيقة
+      less_than_x_minutes:
+        zero: أقل من صفر دقائق
+        one: أقل من دقيقة
+        two: أقل من دقيقتان
+        few: أقل من %{count} دقائق
+        many: أقل من %{count} دقيقة
+        other: أقل من %{count} دقيقة
+      less_than_x_seconds:
+        zero: أقل من صفر ثواني
+        one: أقل من ثانية
+        two: أقل من ثانيتان
+        few: أقل من %{count} ثوان
+        many: أقل من %{count} ثانية
+        other: أقل من %{count} ثانية
+      over_x_years:
+        zero: أكثر من صفر سنوات
+        one: أكثر من سنة
+        two: أكثر من سنتين
+        few: أكثر من %{count} سنوات
+        many: أكثر من %{count} سنة
+        other: أكثر من %{count} سنة
+      x_days:
+        zero: صفر أيام
+        one: يوم واحد
+        two: يومان
+        few: "%{count} أيام"
+        many: "%{count} يوم"
+        other: "%{count} يوم"
+      x_minutes:
+        zero: صفر دقائق
+        one: دقيقة واحدة
+        two: دقيقتان
+        few: "%{count} دقائق"
+        many: "%{count} دقيقة"
+        other: "%{count} دقيقة"
+      x_months:
+        zero: صفر أشهر
+        one: شهر واحد
+        two: شهران
+        few: "%{count} أشهر"
+        many: "%{count} شهر"
+        other: "%{count} شهر"
+      x_seconds:
+        zero: صفر ثواني
+        one: ثانية واحدة
+        two: ثانيتان
+        few: "%{count} ثوان"
+        many: "%{count} ثانية"
+        other: "%{count} ثانية"
+    prompts:
+      day: اليوم
+      hour: ساعة
+      minute: دقيقة
+      month: الشهر
+      second: ثانية
+      year: السنة
+  activerecord:
+    attributes:
+      user:
+        current_password: "كلمة المرور الحالية"
+        email: "البريد الإلكتروني"
+        password: "كلمة المرور"
+        password_confirmation: "تأكيد كلمة المرور"
+        remember_me: "تذكرني"
+        reset_password_token: "كود استعادة كلمة المرور"
+        username: "الاسم"
+        avatar: "الصورة"
+        mob: "رقم المحمول"
+        unlock_token: 
+      type:
+        id: "مسلسل"
+        name: "النوع" 
+        created_at: "اضيف في"
+        updated_at: "عدل في"
+      category:
+        id: "مسلسل"
+        name: "الفئة" 
+        created_at: "اضيف في"
+        updated_at: "عدل في"
+      luxury:
+        id: "مسلسل"
+        name: "كماليات" 
+        created_at: "اضيف في"
+        updated_at: "عدل في"
+      province:
+        id: "مسلسل"
+        name: "اسم الحي" 
+        governorate: "المحافظة"
+        created_at: "اضيف في"
+        updated_at: "عدل في"      
+      governorate:
+        id: "مسلسل"
+        name: "اسم المحافظة"
+        created_at: "اضيف في"
+        updated_at: "عدل في"
+      realty:
+        id: "مسلسل"
+        name: "عنوان الاعلان" 
+        governorate: "المحافظة"
+        province: "الحي"
+        price: "السعر"
+        details: "التفاصيل"
+        rooms: "الغرف"
+        size: "المساحة"
+        baths: "الحمامات"
+        floor: "الطابق"
+        user: "المستخدم"
+        category: "الفئة"
+        type: "النوع"
+        luxury: "كماليات"
+        created_at: "اضيف في"
+        updated_at: "عدل في"
+        carouseled: "اعلان دوار"
+        homed: "اعلان رئيسي"
+        righted: "اعلان يمين"
+        lefted: "اعلان يسار"
+        awesomed: "اعلان مميز"
+        greated: "اعلان فرصة"
+    models:
+      user: "المستخدم"
+      province: "الاحياء"
+      governorate: "المحافظات"
+      type: "النوع"
+      category: "الفئات"
+      luxury: "كماليات"
+      realty: "العقارات"
+      admin_user: "المشرفين"
+      comments: "التعليقات"
+  devise:
+    confirmations:
+      confirmed: "تمّ تأكيد الحساب بنجاح، وتمّ تسجيل الدّخول."
+      new:
+        resend_confirmation_instructions: "أعدْ إرسال تعليمات التأكيد"
+      send_instructions: "ستصل خلال دقائق رسالة على البريد الإلكتروني تتضمّن الخطوات اللازمة لتأكيد الحساب."
+      send_paranoid_instructions: "إذا كان البريد الإلكتروني مسجّلاً، فستصل خلال دقائق رسالة تتضمّن الخطوات اللازمة لتأكيد الحساب."
+    failure:
+      already_authenticated: "تم تسجيل الدخول من قَبل."
+      inactive: "لم يتمّ تنشيط الحساب بعد."
+      invalid: "البريد الإلكتروني أو كلمة السر غير صحيحة."
+      last_attempt: "بقيت محاولة أخيرة قبل غلق الحساب."
+      locked: "الحساب مُعلّق."
+      not_found_in_database: "خطأ فى البريد الإلكتروني أو كلمة السر"
+      timeout: "لقد انتهت صلاحيّة الجلسة، الرجاء تسجيل الدّخول مجدداً."
+      unauthenticated: "يجب إنشاء حساب أو تسجيل الدخول قبل المتابعة."
+      unconfirmed: "يجب تأكيد الحساب حتّى تتمكّن من المُتابعة."
+    mailer:
+      confirmation_instructions:
+        action: "أكّد حسابي"
+        greeting: "مرحبا %{recipient}"
+        instruction: "يمكن تأكيد حساب بريدك الإلكتروني من خلال الرابط التّالي:"
+        subject: "تعليمات تأكيد الحساب"
+      password_change:
+        greeting: "مرحبا %{recipient}"
+        message: "يمكن تغيير كلمة السر من خلال الرابط التّالي:"
+        subject: "تعليمات تغيير كلمة السر"
+      reset_password_instructions:
+        action: "غيّر كلمة السر"
+        greeting: "مرحبا %{recipient}"
+        instruction: "طلب أحدهم رابطًا لتغيير كلمة السر الخاصة بك، ويُمكن عمل ذلك من خلال الرابط التالي."
+        instruction_2: "إن لم تكن أنت من طلب هذا، من فضلك تجاهل هذه الرسالة."
+        instruction_3: "لن تتغيّر كلمة السر الخاصة بك حتى تتبع الرابط السابق وتُنشئ كلمة سر جديدة."
+        subject: "تعليمات إعادة تعيين كلمة المرور"
+      unlock_instructions:
+        action: "أزلْ الحظر عن حسابي"
+        greeting: "مرحبًا %{recipient}"
+        instruction: "انقرْ الرابط على الرابط التالي لفك الحظر عن حسابك:"
+        message: "قُفل حسابك بسبب المحاولات الفاشلة في تسجيل الدخول."
+        subject: "تعليمات إعادة تفعيل الحساب"
+    omniauth_callbacks:
+      failure: "فشلت عمليّة التحقق عبر %{kind} للسبب التّالي: %{reason}"
+      success: "تمّ التحقّق من الحساب بنجاح بإستخدام %{kind}"
+    passwords:
+      edit:
+        change_my_password: "غيّر كلمة المرور خاصتي"
+        change_your_password: "غيّر كلمة المرور الخاصة بك"
+        confirm_new_password: "أكّد كلمة السر الجديدة"
+        new_password: "كلمة سر جديدة"
+      new:
+        forgot_your_password: "هل نسيت كلمة المرور؟"
+        send_me_reset_password_instructions: "أرسلْ لي تعليمات تصفير كلمة المرور"
+      no_token: "لا يُمكن الدّخول إلى هذه الصفحة إلّا بإستخدام رسالة إعادة ضبط كلمة المرور. إن كان الوصول لهذه الصفحة عبر تلك الرسالة فالرجاء التأكد من فتح كامل الرابط بشكل صحيح."
+      send_instructions: "ستصل خلال دقائق رسالة بريد إلكتروني تحوي التعليمات اللازمة لإعادة ضبط كلمة السر."
+      send_paranoid_instructions: "إذا كان بريدك الإلكتروني مسجلاً عندنا فستصل إليه خلال دقائق رسالة تتضمّن رابطاً لاستعادة كلمة المرور."
+      updated: "لقد تمّ تغيير كلمة المرور بنجاح، وتم تسجيل الدخول."
+      updated_not_active: "تمّ تعديل كلمة المرور بنجاح."
+    registrations:
+      destroyed: "لقد تمّت إزالة الحساب، نأمل في نتقابل مجدداً في وقت قريب، إلى اللقاء! "
+      edit:
+        are_you_sure: "هل أنت متأكّد؟"
+        cancel_my_account: "ألغِ حسابي"
+        currently_waiting_confirmation_for_email: "في انتظار تفعيل البريد الإلكتروني %{email}"
+        leave_blank_if_you_don_t_want_to_change_it: "أبقه فارغًا إن كنت لا ترغب في تغييره"
+        title: "تعديل %{resource}"
+        unhappy: "غير راضٍ؟"
+        update: "تحديث"
+        we_need_your_current_password_to_confirm_your_changes: "نحتاج كلمة المرور الحالية خاصتك لتأكيد تغيراتك"
+      new:
+        sign_up: "سجّلْ"
+      signed_up: "تمّ التسجيل في الموقع بنجاح، أهلاً وسهلاً!"
+      signed_up_but_inactive: "تمّ التسجيل في الموقع بنجاح، ولكن لا يُمكن تسجيل الدخول قبل تفعيل الحساب."
+      signed_up_but_locked: "تمّ التسجيل في الموقع بنجاح، ولكن لا يمكن تسجيل الدخول ﻷن الحساب مُعلّق."
+      signed_up_but_unconfirmed: "تمّ إرسال رسالة تحوي على رابط تأكيد الحساب باستخدام البريد الإلكتروني، يُرجى فتح الرابط لتفعيل الحساب."
+      update_needs_confirmation: "تُم تعديل الحساب بنجاح، يرجى تأكيد البريد الإلكتروني. الرجاء الذهاب الى البريد الإلكتروني والضغط على الرابط الموجود للانتهاء من عمليّة التاكيد."
+      updated: "تمّ تعديل الحساب بنجاح."
+    sessions:
+      already_signed_out: 
+      new:
+        sign_in: "سجّلْ الدخول"
+      signed_in: "تمّ تسجيل الدخول."
+      signed_out: "تمّ تسجيل الخروج."
+    shared:
+      links:
+        back: "عودة"
+        didn_t_receive_confirmation_instructions: "ألم تستلم تعليمات التأكيد؟"
+        didn_t_receive_unlock_instructions: "ألم تستلم تعليمات فك الحظر؟"
+        forgot_your_password: "هل نسيت كلمة المرور؟"
+        sign_in: "سجّلْ الدخول"
+        sign_in_with_provider: "سجّلْ الدخول عن طريق %{provider}"
+        sign_up: "سجّلْ"
+    unlocks:
+      new:
+        resend_unlock_instructions: "أعدْ إرسال تعليمات فك الحظر"
+      send_instructions: "خلال بضعة دقائق، سوف تصل رسالة بالتعليمات اللازمة لإعادة تفعيل الحساب."
+      send_paranoid_instructions: "إذا كان الحساب موجوداً، ستصل رسالة خلال دقائق تتضمّن الارشادات عن كيفيّة التفعيل.  "
+      unlocked: "لقد تمّ فتح الحساب بنجاح. الرجاء الدخول للاستمرار."
+  errors:
+    messages:
+      already_confirmed: "الحساب مُفعّل، الرجاء محاولة تسجيل الدخول"
+      confirmation_period_expired: "بحاجة الى تفعيل خلال %{period}، الرجاء طلب تفعيل "
+      expired: "انتهت الصلاحيّة، الرجاء عمل طلب جديد"
+      not_found: "غير موجود"
+      not_locked: "غير مقفل"
+      not_saved:
+        few: "%{count} مشكلة منعت %{resource} من التخزين بنجاح."
+        many: "%{count} مشاكل منعت %{resource} من التخزين بنجاح."
+        one: "مشكلة واحدة منعت %{resource} من التخزين بنجاح."
+        other: "%{count} مشكلة منعت %{resource} من التخزين بنجاح."
+        two: "مشكلتين منعتا %{resource} من التخزين بنجاح."
+        zero: 

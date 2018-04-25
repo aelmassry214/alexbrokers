@@ -1,0 +1,23 @@
+		<% @rightAd.each do |rightAd|%>
+          <% if rightAd.assets.exists? %>
+          	<div  class="margin-ads">
+							<%= link_to image_tag(rightAd.assets.first.image.url(:thumb), class:"generalAds-Image"), rightAd %>
+							<p><%= rightAd.name %></p>
+						</div>
+					<% else %>
+						<div class='margin-ads'>
+          		<%= link_to image_tag('/images/genImage_thumb.jpg', class:'generalAds-Image'), rightAd%>
+           		<p><%= rightAd.name %></p>
+          	</div>
+          <% end %>
+      <% end %>
+
+      <% if @rightAd.length < 5 %>
+          <% generalAdsLength = 5-@rightAd.length %>
+          <% for generalAds in 1..generalAdsLength %>
+              <div class='margin-ads'>
+              	<%=	link_to image_tag('/images/alexbrokers4.jpg', class:'generalAds-Image'), about_path %>
+              	<p>اتصل بنا</p>
+              </div>
+          <% end %>
+      <% end %>

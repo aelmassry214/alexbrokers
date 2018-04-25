@@ -1,0 +1,94 @@
+
+<% content_for :realtyShow do %>
+	<%= javascript_include_tag 'realtyshow.js' %>
+<% end %>
+
+	<!-- Check for errors -->
+	<% if @realty.errors.any? %>
+		<% @realty.errors.full_messages.each do |msg| %>
+			<!-- Show errors -->
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+
+<div class="row" >
+
+
+		<div class="col-md-2" id="index-left">
+			<h1>إعلانات</h1>
+ 			<%= render 'partials/leftAd'%>
+		</div>
+		
+		<div class="col-md-8" id="edit-middle">
+			
+
+			<div id="show-main">
+				<h2><%= @realty.name %></h2>
+				<p id="show-date"><strong>تمت الاضافة بواسطة </strong> <%= @realty.user.email %> <strong>بتاريخ</strong> <%= I18n.localize(@realty.created_at, :format =>  '%e %B %Y في %l:%M %p')%></p>
+
+
+			<!--
+				<div class="realty-show-left">
+					<ul>
+						<#% for asset in @realty.assets %>
+							<li><#%= link_to  image_tag(asset.image.url(:thumb)), asset.image.url(:original) %></li>
+						<#% end %>
+					</ul>
+				</div>
+			-->
+
+				<div class="container" id="show-slider-container">
+					 <div class="header">
+						<strong>صور العقار:</strong>
+					 </div> 
+					 
+					 <% if @realty.assets.exists? %>
+						 <div id="showSlider">
+							 <ul class="showSlides">
+									<% for asset in @realty.assets %>
+											<li class="showSlide"><%= link_to image_tag(asset.image.url(:medium)) %>	</li>
+									<% end %>        
+							 </ul>
+						 </div>
+					 <% end %>
+				</div>
+
+				<div class="show-list">
+					<h3>تفاصيل الاعلان</h3>
+					<ul>
+						<li><span><strong>الفئة :</strong></span> <%= @realty.category.name %></li>
+						<li><span><strong>النوع :</strong></span> <%= @realty.type.name %></li>
+						<li><span><strong>المحافظة :</strong></span> <%= @realty.governorate.name %></li>
+						<li><span><strong>الحي :</strong></span> <%= @realty.province.name %></li>
+						<li><span><strong>المساحة :</strong></span> <%= @realty.size %></li>
+						<li><span><strong>الدور :</strong></span> <%= @realty.floor %></li>
+						<li><span><strong>عدد الغرف :</strong></span> <%= @realty.rooms %></li>
+						<li><span><strong>عدد الحمامات :</strong></span> <%= @realty.baths %></li>
+						<li>
+							<span><strong>الكماليات :</strong></span>
+							<ul id="show-luxuries">
+								<% @realty.luxuries.each do |luxury| %>
+									<li><%= luxury.name %></li>
+								<% end %>
+							</ul>
+						</li>
+						<li><span><strong>السعر :</strong></span> <%= @realty.price %></li>
+
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+				<h4>التفاصيل</h4>
+				<p><%= @realty.details %></p>
+
+				<%= link_to "عودة", request.referer, class:'btn btn-primary' %>
+
+			</div>
+			
+		</div>
+		
+		<div class="col-md-2" id="index-right">
+			<h1>إعلانات</h1>
+			<%= render 'partials/rightAd'%>
+		</div>
+		
+</div>

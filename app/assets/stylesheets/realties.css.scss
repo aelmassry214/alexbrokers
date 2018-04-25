@@ -1,0 +1,388 @@
+// Place all the styles related to the realties controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$basic-color: #CAE4DB;
+$primary-color: rgba(0, 48, 63, 0.85); //#00303F;
+$secondary-color: #FFEAC8;
+$another-color: #FF6600;
+$loging-color: #444;
+$font-color: black;
+$font-color-inv: #fff;
+
+
+@media (min-width: 992px){
+#index-middle .container {
+    width: 100%;
+}
+}
+
+@media (max-width: 360px){
+	#index-image {
+		height: 50% !important;
+		width: 50%;
+	}
+}
+
+
+#index-main {
+	//	background: $primary-color;
+	color: $basic-color;
+	//display: table-cell;
+	width: 100%;
+	height: 100%;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+#index-middle {
+	//	clear: both;
+	border: 1px solid #444;
+	overflow: hidden;
+	background: $basic-color;
+	color: $primary-color;
+}
+
+#index-fields {
+	//border: 2px solid green;
+	clear: both;
+	width: 68%;
+	display: inline-block;
+	padding: 5px;
+	//overflow: hidden;
+}
+
+#index-container {
+	//	border: 2px solid blue;
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 5px;
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background: $secondary-color;
+	position: relative;
+}
+
+#index-container p {
+  padding:5px 0;
+  margin: 0 0 0 0;
+}
+
+#index-image {
+	clear: both;
+	//width: 30%;
+	//border: 2px solid red;
+	float: left;
+	margin: 10px auto auto 10px;
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	position: absolute;
+  top: 10%;
+  left: 0;
+	height: 65%;
+}
+
+#index-image img {
+	height: 90%;
+	width: 100%;
+}
+
+#index-image p {
+	display: inline;
+	position: relative;
+	padding: 10px 10px 5px 10px;
+}
+
+#index-imagetag {
+	height: 80%;
+	width: 100%;
+	position: relative;
+	//	z-index: 10;
+	padding-bottom: 15px;
+}
+
+.index-list {
+	display: inline-block;
+	margin-right: 5px;
+	padding: 3px 0;
+}
+
+.index-list li {
+	list-style-type: none;
+	float: right;
+	padding-left: 20px;
+	display: inline-flex;
+}
+
+#index-luxury span {
+  float: right;
+  width: 100px;
+}
+
+#index-left {
+	//border: 1px solid red;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	color: $basic-color;
+	display: inline;
+}
+
+#index-left h1,
+#index-right h1 {
+	text-align: center;
+}
+
+#index-right {
+	//border: 1px solid green;
+	//position: fixed;
+	height: 100%;
+	//overflow-y: scroll;
+	color: $basic-color;
+	
+}
+
+.index-list-title {
+	display: inline-block;
+	width: 100px;
+	background: $another-color;
+	color: azure;
+	padding: 5px;
+}
+
+#title-price {
+	display: inline;
+}
+
+#index-list-price {
+	display: inline;
+	margin-right: 25% !important;
+	background: #ce0fe3;
+	color: azure;
+	padding: 5px;
+}
+
+.edit-container {
+	padding-right: 0;
+}
+
+// --------------------- search partial ---------------------------
+
+#search-form .actions {
+	color: $primary-color;
+}
+
+
+#search-form .form-control {
+	width: 100% !important;
+	display: inline-flex;
+	padding: 0px 3px;
+	height: 36px;
+}
+
+.form-control-fromto {
+	width:49%;
+	height: 36px;
+	border-radius: 4px;
+}
+
+//---------------------- fast links --------------------------------
+#fast-links {
+	width: 100%;
+	webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background: $secondary-color;
+	position: relative;
+	padding: 5px 20px 5px 5px;
+	margin-top: 10px;
+	
+}
+
+.form-control-fast {
+	width: 20% !important;
+	display: inline-flex;
+	padding: 0px 3px;
+	height: 36px;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	-webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s
+}
+
+#fast-links .cancel-button, .sort_link {
+	padding-right: 20px;
+}
+
+.search-btn {
+	margin-right: 20px;
+	width: 80px;
+}
+
+
+// --------------------- edit view --------------------------------
+#edit-main
+{
+	background: $basic-color;
+}
+
+#edit-main strong
+{
+	margin-right: 60px;
+	margin-bottom: 0;
+}
+
+#edit-header h1 {
+	background: $basic-color;
+	color: $primary-color;
+	margin-bottom: 0;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#edit-main .form-control {
+	width: calc(80% - 22px);
+	margin: 10px 60px 10px 10px;
+	display: inline-flex;
+	padding: 0px 3px;
+	height: 2.5em;
+}
+
+.edit-pack {
+	width: calc(80% - 22px);
+	margin: 10px 0;
+	display: inline-flex;
+	height: auto;
+}
+
+#edit-main .custom-checkbox {
+	margin-right: 60px;
+}
+
+.photos-upload {
+	margin-right: 60px;
+}
+
+#edit-image-show {
+  display: inline-block;
+  padding: 5px;
+  width: 200px;
+	position: relative;
+	height: 200px;
+}
+
+#edit-image-show input {
+	position: absolute;
+	bottom: 0;
+}
+
+#edit-image-show p {
+	position: absolute;
+	bottom: 30px
+}
+
+#edit-image-show strong {
+	margin-right: 15px;
+}
+
+#realty_details{
+	height: auto !important;
+}
+
+// ---------------------- show view ---------------------
+#show-main {
+	background: $basic-color;
+	margin-right: 30px;
+	margin-bottom: 0;
+	padding: 10px 30px;
+}
+
+#show-date {
+	text-align: center;
+}
+
+#show-main h2 {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#show-main strong {
+	margin-right: 30px;
+	margin-bottom: 0;
+}
+
+.show-list li {
+	list-style: none;
+}
+
+#show-list h3 {
+	text-align: center;
+}
+
+.show-list span {
+  float: right;
+  width: 130px;
+}
+
+#show-luxuries li {
+  display: inline;
+  padding: 10px;
+}
+
+// ------------------- Ads --------------------
+.margin-ads {
+  display: inline-block;
+}
+
+.margin-ads p {
+	margin-bottom: 10px;
+	text-align:center;
+}
+
+.ads-Image {
+  height: 60%;
+  width: 60%;
+  position: relative;
+  //	z-index: 10;
+  padding-bottom: 15px;
+}
+
+.generalAds-Image {
+  height: 150px;
+  width: 150px;
+  padding-bottom: 15px;
+  margin-right: 20px;
+}
+
+// ------------------- Will Paginate -----------------
+.apple_pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+.apple_pagination a, .apple_pagination span {
+  padding: 0.2em 0.3em; }
+.apple_pagination .disabled {
+  color: #aaaaaa; }
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: $primary-color;
+  color: $basic-color;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+.apple_pagination a {
+  text-decoration: none;
+  color: black; }
+.apple_pagination a:hover, .apple_pagination a:focus {
+  text-decoration: underline; }

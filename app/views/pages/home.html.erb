@@ -1,0 +1,230 @@
+<div>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</div>
+
+<div id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/images/alex5.jpg" alt="Alexandria">
+        <div class="carousel-caption">
+          <h3>الاسكندرية</h3>
+          <p>عروس البحر المتوسط</p>
+        </div>
+      </div>
+      
+      <div class="item">
+        <img src="/images/alex6.jpg" alt="Alexandria">
+        <div class="carousel-caption">
+          <h3>الاسكندرية</h3>
+          <p>عروس البحر المتوسط</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="/images/alex7.jpg" alt="Alexandria">
+        <div class="carousel-caption">
+          <h3>الاسكندرية</h3>
+          <p>عروس البحر المتوسط</p>
+        </div>
+      </div>
+
+    <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  
+  </div>  
+  
+<div id="first-ads" class="container text-center">
+    <h3> اليكس بروكرز </h3>
+    <p> اهلا بك في موقعنا </p>
+    <p> نحن متخصصون في بيع وتاجير الشقق والعقارات بالاسكندرية</p>
+    <br>
+    <div>
+      <div class="row">
+        <div class="col-sm-4">
+          <p class="text-center"><strong>2 عرض مميز</strong></p><br>
+          <a href="#demo" data-toggle="collapse">
+            <% if @awesomedAd[0].present? %>
+                <%= image_tag(@awesomedAd[0].assets.first.image.url(:medium), :alt => "AlexBrokers", class: "img-circle alex") %>
+            <% else %>
+                <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+            <% end %>
+          </a>
+          <% if @awesomedAd[0].present? %>
+              <div id="demo" class="collapse">
+                <p><%= @awesomedAd[0].name %></p>
+              </div>
+          <% else %>
+              <div id="demo" class="collapse">
+                <p> اليكس بروكرز للتسويق العقاري </p>
+                <p> اتصل بنا لتضع اعلانك هنا </p>
+                <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+                <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+              </div>
+          <% end %>
+        </div>
+        
+        <div class="col-sm-4">
+          <p class="text-center"><strong>2 عرض مميز</strong></p><br>
+          <a href="#demo2" data-toggle="collapse">
+            <% if @awesomedAd[1].present? %>
+                <%= image_tag(@awesomedAd[1].assets.first.image.url(:medium), :alt => "AlexBrokers", class: "img-circle alex") %>
+            <% else %>
+                <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+            <% end %>
+          </a>
+          <% if @awesomedAd[1].present? %>
+              <div id="demo2" class="collapse">
+                <p><%= @awesomedAd[1].name %></p>
+              </div>
+          <% else %>
+              <div id="demo2" class="collapse">
+                <p> اليكس بروكرز للتسويق العقاري </p>
+                <p> اتصل بنا لتضع اعلانك هنا </p>
+                <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+                <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+              </div>
+          <% end %>
+        </div>
+
+        <div class="col-sm-4">
+          <p class="text-center"><strong>1 عرض مميز</strong></p><br>
+          <a href="#demo3" data-toggle="collapse">
+            <% if @awesomedAd[2].present? %>
+                <%= image_tag(@awesomedAd[2].assets.first.image.url(:medium), :alt => "AlexBrokers", class: "img-circle alex") %>
+            <% else %>
+                <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+            <% end %>
+          </a>
+          <% if @awesomedAd[2].present? %>
+              <div id="demo3" class="collapse">
+                <p><%= @awesomedAd[2].name %></p>
+              </div>
+          <% else %>
+              <div id="demo3" class="collapse">
+                <p> اليكس بروكرز للتسويق العقاري </p>
+                <p> اتصل بنا لتضع اعلانك هنا </p>
+                <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+                <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  <div id="souq" class="bg-1">
+    <div class="container">
+      <div id="souq-header">
+      	<h3 class="text-center"> عروض جديدة </h3>
+      	<p class="text-center"> اجدد الاعلانات تجدها هنا </p>
+			</div>
+      <ul class="list-group">
+        <li class="list-group-item"> <i class="fa fa-circle" aria-hidden="true"></i> <%= @latestAd[0].name %>  <%= link_to ' التفاصيل ', @latestAd[0] %> </li>
+        <li class="list-group-item"> <i class="fa fa-circle" aria-hidden="true"></i> <%= @latestAd[1].name %>  <%= link_to ' التفاصيل ', @latestAd[1] %> </li>
+        <li class="list-group-item"> <i class="fa fa-circle" aria-hidden="true"></i> <%= @latestAd[2].name %>  <%= link_to ' التفاصيل ', @latestAd[2] %> </li>
+      </ul>
+    </div>
+  
+    <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <% if @greatedAd[0].present? %>
+            <%= image_tag(@greatedAd[0].assets.first.image.url(:medium)) %>
+          <p><strong>فرصة</strong></p>
+          <p><%= @greatedAd[0].name %> </p>
+          <button class="btn"><%= link_to 'التفاصيل', @greatedAd[0]%></button>
+        <% else %>
+            <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+            <p><strong>فرصة</strong></p>
+            <p> اليكس بروكرز للتسويق العقاري </p>
+            <p> اتصل بنا لتضع اعلانك هنا </p>
+            <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+            <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+          <% if @greatedAd[1].present? %>
+              <%= image_tag(@greatedAd[1].assets.first.image.url(:medium)) %>
+              <p><strong>فرصة</strong></p>
+              <p><%= @greatedAd[1].name %> </p>
+              <button class="btn"><%= link_to 'التفاصيل', @greatedAd[1]%></button>
+          <% else %>
+              <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+              <p><strong>فرصة</strong></p>
+              <p> اليكس بروكرز للتسويق العقاري </p>
+              <p> اتصل بنا لتضع اعلانك هنا </p>
+              <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+              <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+          <% end %>
+        </div>
+      </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+          <% if @greatedAd[2].present? %>
+              <%= image_tag(@greatedAd[2].assets.first.image.url(:medium)) %>
+              <p><strong>فرصة</strong></p>
+              <p><%= @greatedAd[2].name %> </p>
+              <button class="btn"><%= link_to 'التفاصيل', @greatedAd[2]%></button>
+          <% else %>
+              <%=	image_tag('/images/alexbrokers4.jpg', class:'img-circle alex') %>
+              <p><strong>فرصة</strong></p>
+              <p> اليكس بروكرز للتسويق العقاري </p>
+              <p> اتصل بنا لتضع اعلانك هنا </p>
+              <p> 0122-336-7978 <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></p>
+              <p>hindawy1973@ <i class="fa fa-comment fa-lg" data-fa-transform="flip-v" aria-hidden="true"> </i></p>
+          <% end %>
+        </div>
+      </div>
+
+    <!--<div class="col-sm-4">-->
+      <!--<div class="thumbnail">-->
+        <!--<img src="/images/alex2.jpg" alt="New York">-->
+        <!--<p><strong>اعلان 2</strong></p>-->
+        <!--<p>نبذة عن الاعلان</p>-->
+        <!--<button class="btn">المزيد</button>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-4">-->
+      <!--<div class="thumbnail">-->
+        <!--<img src="/images/alex3.jpg" alt="San Francisco">-->
+        <!--<p><strong>اعلان 3</strong></p>-->
+        <!--<p>نبذة عن الاعلان</p>-->
+        <!--<button class="btn">تفاصيل</button>-->
+      <!--</div>-->
+      <!--</div>-->
+  <!---->
+  
+  </div>
+
+
+  
+  </div>
+
+  </div>
+
+ <!-- </html>
+-->
+
+

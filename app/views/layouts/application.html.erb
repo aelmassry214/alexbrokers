@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>اليكس بروكروز</title>
+    <%= csrf_meta_tags %>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--<link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= yield :realtyShow %> 
+  </head>
+
+  <body>
+   	
+   	<header>
+   		<%=render "partials/navbar"%>
+ 		</header>
+  	
+  	<main>
+			<div class="container-fluid" id="main">
+				<%= yield %>
+			</div>
+  	</main>		
+ 
+   	<footer>
+   		<p>مكتب اليكس بروكرز للعقارات بالاسكندرية...التسويق بمفهوم مختلف.</p>
+   		<p> للإستفسار اتصل بنا علي <i class="fa fa-mobile fa-lg" aria-hidden="true"></i> <i class="fa fa-whatsapp" aria-hidden="true"></i> 01223367978. <i class="fa fa-comment" aria-hidden="true"></i> @hindawy1973</p>
+    	<p>Copyrite &copy; Amr El-Massry, 2017, All Rights Reserved</p>
+   	</footer> 
+   	 	
+  </body>
+</html>

@@ -1,0 +1,52 @@
+
+<div id="search-form" >
+
+	<%= search_form_for @q do |f|%>
+		<h3>ابحث عن اعلان</h3>
+		<div class="form-group search-group" id="search_partial">
+			<%= f.text_field :name_cont, placeholder: "في العنوان", class: 'form-control' %>
+
+			<%= f.select :type_id_eq, Type.all.collect {|x| [x.name, x.id]}, {:include_blank => 'النوع'} , class: 'form-control', :style => "width: 194px;" %>
+
+			<%= f.select :category_id_eq, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'الفئة'} , class: 'form-control', :style => "width: 194px;" %>
+
+			<div>
+				<%= f.number_field :price_gteq, step: 100, placeholder: 'السعر من', class: 'form-control-fromto'%>
+				<%= f.number_field :price_lteq, step: 100, placeholder: 'السعر الى', class: 'form-control-fromto'%>
+			</div>
+
+			<%= f.select :governorate_id_eq, Governorate.all.collect {|x| [x.name, x.id]}, {:include_blank => 'اختار المحافظة'}, class: 'form-control', id: 'searchGovernorateID', :style => "width: 194px;" %>
+
+			<%= f.grouped_collection_select :province_id_eq, Governorate.order(:name), :provinces, :name, :id, :name, {:include_blank => 'اختار الحي'}, class: 'form-control' , id: 'searchProvinceID', :style => "width: 194px;" %>
+
+			<div>		
+				<%= f.number_field :size_gteq, step: 10, placeholder: 'مساحة من', class: 'form-control-fromto'%>
+				<%= f.number_field :size_lteq, step: 10, placeholder: 'مساحة الى', class: 'form-control-fromto'%>
+			</div>
+
+			<div>		
+				<%= f.number_field :floor_gteq, in: 1...50, step: 1, placeholder: 'الدور من', class: 'form-control-fromto'%>
+				<%= f.number_field :floor_lteq, in: 1...50, step: 1, placeholder: 'الدور الى', class: 'form-control-fromto'%>
+			</div>		
+
+			<div>
+				<%= f.number_field :rooms_gteq, in:1...20, step: 1, placeholder: 'الغرف من', class: 'form-control-fromto'%>
+				<%= f.number_field :rooms_lteq, in:1...20, step: 1, placeholder: 'الغرف الى', class: 'form-control-fromto'%>
+			</div>
+
+			<div>
+				<%= f.number_field :baths_gteq, in: 1...10, step: 1, placeholder: 'حمامات من', class: 'form-control-fromto'%>
+				<%= f.number_field :baths_lteq, in: 1...10, step: 1, placeholder: 'حمامات الى', class: 'form-control-fromto'%>
+			</div>
+
+
+			<%#= f.text_area :details, class: 'form-control' %>
+
+		</div>
+
+		<%= f.submit "بـحث", class: 'btn-primary btn-sm search-btn'%>
+
+
+	<% end %>
+
+</div>

@@ -1,0 +1,109 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$basic-color: #CAE4DB;
+$primary-color: rgba(0, 48, 63, 0.85); //#00303F;
+$secondary-color: #FFEAC8;
+$another-color: #FF6600;
+$loging-color: #444;
+$font-color: black;
+$font-color-inv: #fff;
+$yellowish-color: #ead10b;
+
+
+.middle {
+	border: 1px solid #444;
+	height: 100vh;
+	overflow: hidden;
+	background: $basic-color;
+	color: $primary-color;
+}
+
+
+.left {
+	//border: 1px solid red;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	color: $basic-color;
+}
+
+.left h1,
+.right h1 {
+	text-align: center;
+}
+
+.right {
+	//border: 1px solid green;
+	//position: fixed;
+	height: 100%;
+	//overflow-y: scroll;
+	color: $basic-color;
+}
+
+.field label, em, i {
+	color: $font-color-inv;
+}
+
+.field input {
+	width: 100%;
+	line-height: 1.3em;
+	border-radius: 5px;
+	height: 2em;
+}
+
+.user-header {
+	color: $yellowish-color;
+}
+
+.yellow-links {
+	color: $yellowish-color;
+}
+
+.file-field {
+	color: $font-color-inv;
+}
+
+.avatar label {
+	margin-top: 30px;
+}
+
+.field {
+	margin-top: 10px;
+	width: 60%;
+}
+
+.bright-font {
+	color: $font-color-inv;
+}
+
+#error_explanation {
+	color: $another-color;
+	background: $secondary-color;
+}
+
+.cancel-account {
+	border-top: 2px solid $basic-color;
+	border-bottom: 2px solid $basic-color;
+	width: 100%;
+	margin-top: 10px;
+}
+
+table {
+	margin-top: 20px;
+	border-top: 2px solid $primary-color;
+}
+
+th {
+	text-align: center !important;
+}
+
+td {
+	text-align: center !important;
+}
+
+#user-table-realty-name,
+#user-details td {
+	text-align: right !important;
+}

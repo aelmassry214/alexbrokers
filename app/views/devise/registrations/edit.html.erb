@@ -1,0 +1,71 @@
+<h2 class="user-header">تعديل الحساب </h2> 
+<%#= resource_name.to_s.humanize %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  
+  <%= devise_error_messages! %>
+
+<!--
+	<div class="field avatar">
+		<%#= f.label :avatar %><br/>
+		<%#= f.file_field :avatar, class: 'file-field' %>
+	</div>
+-->
+
+	<div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mob %><br />
+    <%= f.telephone_field :mob %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>حاليا بانتظار تاكيد تفعيل حساب: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(اترك هذا الحقل فارغا، اذا كنت لا ترغب في تغيير كلمة السر)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> حروف على الاقل</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(يجب ان تكتب كلمة السر الحالية لتتمكن من تغيير كلمة السر)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+	
+	<br/>
+  <div class="actions">
+    <%= f.submit "تعديل", class:'btn btn-primary' %>
+  </div>
+	
+<% end %>
+	
+
+<div>
+	<br />
+	<input class="btn btn-primary" onclick="history.back()" type="submit" value="عودة" />
+
+</div>
+
+<div class="cancel-account">
+	<h3 class="user-header">الغاء الحساب</h3>
+
+	<p class="bright-font">هل انت غير راض؟ <%= button_to "الغي حسابي", registration_path(resource_name), data: { confirm: "هل انت متأكد؟" }, method: :delete, class:'btn btn-primary' %></p>
+</div>

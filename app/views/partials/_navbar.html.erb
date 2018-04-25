@@ -1,0 +1,89 @@
+  <nav class="navbar navbar-default transparent navbar-fixed-top " data-turbolinks="false">
+		<div class="navbar-inner ">
+
+		 <div class="navbar-header pull-right">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">اظهار القائمة</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/"><h1>اليكس بروكرز</h1></a>
+			</div>		
+		
+		
+			<div id="navbar" class="collapse navbar-collapse pull-right">
+				<ul class="nav navbar-nav">
+					
+					<li><%=link_to "عن الموقع", about_path%></li>
+
+					<% if user_signed_in? %>
+						<% if current_user.privateUser? %>
+							<li class="dropdown">
+								<%= link_to "", {'class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false"} do %>
+								 العقارات الخاصة<span class="caret"></span>
+								<% end %>
+								<ul class="dropdown-menu">
+									<%= link_to ' كل العقارات الخاصة', private_realty_index_path %><br/>
+									<% Type.all.each do |type| %>
+										<%= link_to type.name, private_realty_index_path(:type_id => type.id)  %><br/>
+									<% end %>
+								</ul>
+							</li>
+						<% end %>
+
+					
+					<li>								
+								<%= link_to 'اضافة إعلان', realties_new_path %>
+					</li>
+					
+					<% end %>
+<!--
+					<li class="active"><%#=link_to "العقارات", realties_index_path%></li>
+					<li class="dropdown"><a href="#">More<span class="caret"></span></a></li>
+-->
+					<li class="dropdown">
+   					<%= link_to "", {'class'=>"dropdown-toggle", 'data-toggle'=>"dropdown", 'role'=>"button", 'aria-haspopup'=>"true", 'aria-expanded'=>"false"} do %>
+    					العقارات<span class="caret"></span>
+						<% end %>
+						<ul class="dropdown-menu">
+							<%= link_to 'كل العقارات', realties_index_path %><br/>
+							<% Type.all.each do |type| %>
+								<%= link_to type.name, realties_index_path(:type_id => type.id)  %><br/>
+							<% end %>
+          	</ul>
+					
+					</li>
+				</ul>
+
+			</div>
+
+			<!--/.nav-collapse -->
+			
+			<div id='container'>
+				<!-- Alerts & Messages -->
+				<div id="notice-alert">
+					<% if flash[:notice] %>
+						<div class="alert alert-success"><%= flash[:notice] %></div>
+					<% end %>
+
+					<% if flash[:alert] %>
+						<div class="alert alert-danger"><%= flash[:alert] %></div>
+					<% end %>
+				</div>
+				<!-- user logging message-->
+				<div>
+					<div id="user_nav">
+						<% if user_signed_in? %>
+								تم تسجيل الدخول باسم: <%= link_to current_user.email, user_path(current_user) %> 
+								<%= link_to "تسجيل خروج", destroy_user_session_path, :method => :delete, :style => "float: left;" %>
+						<% else %>
+								<%= link_to 'مستخدم جديد', new_user_registration_path %> او <%= link_to 'تسجيل دخول',  new_user_session_path %>
+						<% end %>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+	</nav>

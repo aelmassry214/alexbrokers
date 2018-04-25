@@ -1,0 +1,165 @@
+	<!-- Check for errors -->
+	<% if @realty.errors.any? %>
+		<% @realty.errors.full_messages.each do |msg| %>
+			<!-- Show errors -->
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+
+<div class="row" >
+
+		
+<!-- -------------------- Left Advertisment --------------------------- -->
+		<div class="col-md-2" id="index-left">
+			<h1>إعلانات</h1>
+			<%= render 'partials/leftAd' %>
+		</div>
+
+		
+<!-- -------------------- Edit realties - middle --------------------------- -->						
+		<div class="col-md-8" id="edit-middle">
+			
+			<div id="edit-header"><h1>تعديل الاعلان</h1></div>
+
+			<%= form_for @realty, html: {class: "form form-container", multipart: true} do |f| %>
+				<div class="form-group" id="edit-main">
+					
+					
+					<div class="form-group">
+						<strong>عنوان الاعلان</strong><br />
+						<%= f.text_field :name, class: 'form-control'%>
+					</div>
+					
+					<!--     	اعلان خاص		   	-->
+					<% if current_user.privateUser? %>
+						<div class="form-group">
+							<label class="custom-control custom-checkbox pull-right" >
+								<%= f.check_box :privateRealties, id:'private-realty' %> 
+								<label for='private-realty'>اعلان خاص</label>
+							</label><br/>
+						</div>
+					<% end %>
+					<!-- ------------------- -->
+					
+					<div class="form-group">
+						<strong>السعر</strong><br />						
+						<%= f.text_field :price, class: 'form-control'%>
+					</div>
+
+					<div class="form-group row edit-pack">	
+
+						<div class="col-xs-3">
+							<strong>المساحة</strong><br />
+							<%= f.number_field :size, step: 10, class: 'form-control'%>
+						</div>
+
+						<div class="col-xs-3">
+							<strong>الدور</strong><br />
+							<%= f.number_field :floor, in: 1...50, step: 1, class: 'form-control'%> 
+						</div>
+
+						<div class="col-xs-3">
+							<strong>عدد الغرف</strong><br />
+							<%= f.number_field :rooms, in:1...20, step: 1, class: 'form-control'%>
+						</div>
+
+						<div class="col-xs-3">
+							<strong>الحمامات</strong><br />
+							<%= f.number_field :baths, in: 1...10, step: 1, class: 'form-control'%>
+						</div>
+
+					</div>					
+
+					<div class="form-group row edit-pack">				
+						<div class="col-xs-4">
+							<strong>المحافظة</strong><br />
+							<%= f.select :governorate_id, Governorate.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'} , class: 'form-control', id: 'GovernorateID' %>
+						</div>
+
+						<div class="col-xs-4">
+							<strong>الحي</strong><br />
+							<%= f.grouped_collection_select :province_id, Governorate.order(:name), :provinces, :name, :id, :name, {:include_blank => 'Select One'} ,id: 'ProvinceID', class: 'form-control' %>
+						</div>
+
+					</div>	
+
+					<div class="form-group row edit-pack">											
+						<div class="col-xs-4">
+							<strong>النوع</strong><br />
+							<%= f.select :type_id, Type.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'} , class: 'form-control' %>
+						</div>
+
+						<div class="col-xs-4">
+							<strong>الفئة</strong><br />
+							<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Select One'} , class: 'form-control' %>
+						</div>
+					</div>
+
+					<br/>
+					<!--	features checkboxes		-->
+						<label class="custom-control custom-checkbox pull-right" >
+							<%= hidden_field_tag "realty[luxury_ids][]", nil %>
+							<% Luxury.all.each do |luxury| %>
+								<%= check_box_tag "realty[luxury_ids][]", luxury.id, @realty.luxury_ids.include?(luxury.id), id: dom_id(luxury), class: 'custom-control-input' %>
+								<span class="custom-control-indicator"></span>
+								<%= label_tag dom_id(luxury), luxury.name, class: 'custom-control-description' %>
+							<% end %>
+						</label>
+
+          <br/><br/>
+          <div class="form-group">
+            <strong>التفاصيل</strong><br />
+            <%= f.text_area :details, class: 'form-control' %>
+          </div>
+
+          <br /><br />
+
+          <!-- show current images -->
+          <div class="photos-upload">
+            <h4>صور العقار</h4>
+            <!-- I had to use a counter since the do loop was producing 5 interation instead of 5 -->
+            <% counter = 0 %>
+            <%= f.fields_for :assets do |asset_fields| %>
+                <% if asset_fields.object.image.exists? %>
+                    <div id="edit-image-show">
+                      <%= asset_fields.label :image %><br>
+                      <%= link_to image_tag(asset_fields.object.image.url(:thumb)), asset_fields.object.image.url(:medium) %>
+                      <%= asset_fields.file_field :image %>
+                      <p> <%= asset_fields.check_box :_destroy %><strong> احذف الصورة</strong> </p><br/>
+                    </div>
+                <% elsif counter == 0 %>
+              			<div id='edit-image-show'>
+											<%= image_tag('/images/genImage_thumb.jpg')%>
+											<%= asset_fields.file_field :image %><br/>
+               			</div>
+               	<% elsif counter < 5  %>                		
+                		<div id='edit-image-show'>
+                			<p>اضف صورة</p>
+                			<%= asset_fields.file_field :image %><br/><br/><br/>
+                		</div>
+                <% end %>
+ 								<% counter= counter+1 %>
+          	<% end %>
+ 
+          </div>
+
+
+					<!-- Upload Images section end -->
+					<br /><br /><br />
+					<div class="container" style="margin-right: 60px">
+						<%= f.submit "تحديث", class:'btn btn-primary' %>
+						<%= link_to "الغاء", request.referer, class:'btn btn-default' %>
+					</div>
+					<br /><br >
+				</div>	
+			<% end %>
+			
+		</div>
+
+<!-- -------------------- Right Advertisment --------------------------- -->				
+		<div class="col-md-2" id="index-right">
+			<h1>إعلانات</h1>
+			<%= render 'partials/rightAd'%>
+		</div>
+		
+</div>
